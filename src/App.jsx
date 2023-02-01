@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import Navbar from './components/Navbar'
-import itemListContainer from './components/itemListContainer'
+import ItemListContainer from './components/ItemListContainer'
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <itemListContainer greeting='Bienvenido a Potterhead Articulos!' />
+      <ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />
     </div>
   )
 }
