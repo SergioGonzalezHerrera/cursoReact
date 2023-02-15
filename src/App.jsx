@@ -1,18 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import Navbar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavBar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <Navbar />
-      <ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />
-    </div>
+    <>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+          <Route path='/categoria/:idCategoria' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+          <Route path='*' element={<Navigate to='/' />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 
