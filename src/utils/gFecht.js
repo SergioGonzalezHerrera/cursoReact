@@ -1,8 +1,8 @@
 let productos = [
-    { id: '1', categoria: 'Varitas', name: "Varita Harry Potter", price: 5000, foto: './image/varitaharry.png' },
-    { id: '2', categoria: 'Varitas', name: "Varita Hermione Granger", price: 4500, foto: './image/varitahermione.png' },
-    { id: '3', categoria: 'Varitas', name: "Varita Ron Weasley", price: 4000, foto: './image/varitaron.png' },
-    { id: '4', categoria: 'Varios', name: "Soporte Varitas", price: 2500, foto: './image/soportevarita.png' },
+    { id: '1', categoria: 'Varitas', name: "Varita Harry Potter", price: 5000, foto: 'https://cdn.shopify.com/s/files/1/0514/6332/3817/products/256320_2.png?v=1638955883' },
+    { id: '2', categoria: 'Varitas', name: "Varita Hermione Granger", price: 4500, foto: 'https://cdn.shopify.com/s/files/1/0514/6332/3817/products/Hermione2_Product_800x.png?v=1639063444' },
+    { id: '3', categoria: 'Varitas', name: "Varita Ron Weasley", price: 4000, foto: 'https://cdn.shopify.com/s/files/1/0514/6332/3817/products/Ron1_Product_800x.png?v=1639126271' },
+    { id: '4', categoria: 'Varios', name: "Soporte Varitas", price: 2500, foto: 'https://cdn.shopify.com/s/files/1/0514/6332/3817/products/WandStand_1_800x.png?v=1610540195' },
 ]
 
 export const gFetch = (id) => new Promise((res, rej) => {
