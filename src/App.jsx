@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
           <Route path='/categoria/:idCategoria' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+          <Route path='/detalle/:idProducto' element = {<ItemDetailContainer />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </BrowserRouter>

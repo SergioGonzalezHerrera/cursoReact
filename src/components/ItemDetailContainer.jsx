@@ -13,7 +13,6 @@ const ItemDetailContainer = () => {
     // console.log(idProducto)
 
     useEffect(()=>{
-        console.log('pepito')
         gFetch(idProducto)
         .then(resp => setProduct(resp))
     },[])

@@ -10,22 +10,22 @@ function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand to='/'>Potterhead</Navbar.Brand>
+                <Navbar.Brand as={Link} to='/'>Potterhead</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     <Nav.Link as={Link} to='/categoria/Varitas'>Varitas</Nav.Link>
                         <Nav.Link as={Link} to='/categoria/Varios'>Varios</Nav.Link>
                         <NavDropdown title="Vestimenta" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Gryffindor</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Ravenclaw</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Hufflepuff</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Slytherin</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/categoria/VestimentaGryffindor'>Gryffindor</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/categoria/VestimentaRavenclaw'>Ravenclaw</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/categoria/VestimentaHufflepuff'>Hufflepuff</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to='/categoria/VestimentaSlytherin'>Slytherin</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#pricing">Contacto</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets"><CartWidget /> </Nav.Link>
+                        <Nav.Link as={Link} to='/cart' ><CartWidget /> </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
