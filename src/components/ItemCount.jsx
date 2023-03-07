@@ -2,7 +2,7 @@
 
 const ItemCount = ({ initial= 1, stock=10, onAdd}) => {
     return (
-        <div className="card mt-5 w-50" >
+        <div className="card mt-5 w-100" >
             <div className="card-body row">
                 <div className="col">
                 <button className="btn btn-outline-dark w-100" onClick={()=>{}}> + </button>

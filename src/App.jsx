@@ -4,20 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { CartContextProvider } from './context/CartContext';
+import CartContainer from './components/CartContainer';
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
-          <Route path='/categoria/:idCategoria' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
-          <Route path='/detalle/:idProducto' element = {<ItemDetailContainer />} />
-          <Route path='*' element={<Navigate to='/' />} />
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+            <Route path='/categoria/:idCategoria' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+            <Route path='/detalle/:idProducto' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<CartContainer />} />
+            <Route path='*' element={<Navigate to='/' />} />
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </>
   )
 }

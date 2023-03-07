@@ -2,8 +2,7 @@
 function CartWidget() {
     return (
         <div>
-            <a href="">🛒</a>
-            <p>0</p>
+            0 🛒
         </div>
     )
 }

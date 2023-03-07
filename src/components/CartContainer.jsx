@@ -10,8 +10,8 @@ const CartContainer = () => {
           cartList.map(prodCart => (
               <label key={prodCart.id}>
                 <img src={prodCart.foto} className='w-25' />
-                Nombre: {prodCart.name} - 
-                cantidad: {prodCart.cantidad} - 
+                Nombre: {prodCart.name}
+                cantidad: {prodCart.cantidad}
                 precio: {prodCart.price}  
               </label>
           ))
