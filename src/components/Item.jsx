@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Item = (producto) => {
+export const Item = ({producto}) => {
     return (
         <div key={producto.id} className="card w-25 m-5">
             <div className="card-header">
