@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { useCartContext } from "./context/CartContext"
+import { useCartContext } from "../context/CartContext"
 import { gFetch } from "../utils/gFecht"
 import ItemCount from "./ItemCount"
 

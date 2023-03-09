@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { gFetch } from "../utils/gFecht"
-import { styleCards } from "./ItemListContiner.style"
+import { ItemList } from "./ItemList"
 
 const ItemListContainer = ( {greeting}) => {
     const [productos, setProductos] = useState([])
@@ -30,29 +30,7 @@ const ItemListContainer = ( {greeting}) => {
                 : 
                 <>
                     <h2>{greeting}</h2>
-                    <div className="justify-content-center align-item-center" style={styleCards}>
-                        { productos.map( producto =>  (
-                                <div key={producto.id} className="card w-25 m-5">
-                                    <div className="card-header">
-                                        Nombre: {producto.name}
-                                    </div>
-                                    <div className="card-body">
-                                        <img className="w-100" src={producto.foto} />
-                                        <br />
-                                        <label>Categoría: {producto.categoria}</label>
-                                        <label>Precio: {producto.price}</label>
-                                        <label>Stock: {producto.stock}</label>
-                                    </div>
-                                    <div className="card-footer">
-                                        <Link to={`/detalle/${producto.id}`}>
-                                            <button className="btn btn-outline-dark w-100">Detalle</button>
-                                        </Link>
-                                    </div>
-                                    
-                                </div>
-                            )) 
-                        }
-                    </div>
+                    <ItemList productos={productos}/>
                 </>
             }
         </>
