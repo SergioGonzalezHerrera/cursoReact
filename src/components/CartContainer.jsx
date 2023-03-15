@@ -17,12 +17,12 @@ const CartContainer = () => {
                   Nombre: {prodCart.name}
                   Cantidad: {prodCart.cantidad}
                   Valor unitario: {prodCart.price}
-                  <div>Valor total: {precioTotal()}</div>
                   <button variant="danger" onClick={() => eliminarProducto(prodCart.id)}>Eliminar del carrito</button>
                 </label>
               ))
             }
           </div>
+          <h3>Valor total: {precioTotal()}</h3>
           <button onClick={vaciarCarrito}>Vaciar carrito</button>
         </div>
       ) : (
