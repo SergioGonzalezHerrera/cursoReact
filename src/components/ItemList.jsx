@@ -1,11 +1,12 @@
+import { memo } from "react"
 import { Item } from "./Item"
 import { styleCards } from "./ItemListContiner.style"
 
-export const ItemList = ({ productos }) => {
+export const ItemList = memo(({ productos }) => {
     return (
         <div className="justify-content-center align-item-center" style={styleCards}>
             {productos.map(producto => <Item key={producto.id} producto={producto} />)
             }
         </div>
     )
-}
+})
