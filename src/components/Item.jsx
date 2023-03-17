@@ -7,9 +7,9 @@ export const Item = ({ producto }) => {
                 Nombre: {producto.name}
             </div>
             <div className="card-body">
-                <img className="w-100" src={producto.foto} />
+                <img className="w-100" src={producto.picture} />
                 <br />
-                <label>Categoría: {producto.categoria}</label>
+                <label>Categoría: {producto.category}</label>
                 <label>Precio: {producto.price}</label>
                 <label>Stock: {producto.stock}</label>
             </div>

@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
     return (
         <div className='container-fluid'>
             <Card className="card text-white bg-dark mb-3 w-50">
-                <Card.Img variant="top" src={product.foto} />
+                <Card.Img variant="top" src={product.picture} />
                 <Card.Body>
                     <Card.Title className='text-center'>{product.name}</Card.Title>
                     <Card.Text className='text-center'>

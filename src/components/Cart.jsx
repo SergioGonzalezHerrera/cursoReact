@@ -11,17 +11,14 @@ const Cart = () => {
         email: ''
     })
     const { cartList, vaciarCarrito, precioTotal, eliminarProducto } = useCartContext()
-
     const generateOrder = (event) => {
         event.preventDefault()
         const order = {}
         order.buyer = dataForm
         order.precioTotal = precioTotal()
         order.productos = cartList.map(({ id, name, price }) => ({ id, name, price }))
-
         const db = getFirestore()
         const queryCollection = collection(db, 'Orders')
-
         addDoc(queryCollection, order)
             .then(resp => setId(resp.id))
             .catch(err => console.log(err))
@@ -34,14 +31,12 @@ const Cart = () => {
                 })
             })
     }
-
     const handleOnChange = (event) => {
         setDataForm({
             ...dataForm,
             [event.target.name]: event.target.value
         })
     }
-
     return (
         <div>
             {id !== '' && <h1> Orden de compra: {id}</h1>}
@@ -51,7 +46,7 @@ const Cart = () => {
                         {
                             cartList.map(prodCart => (
                                 <label key={prodCart.id}>
-                                    <img src={prodCart.foto} className='w-25' />
+                                    <img src={prodCart.picture} className='w-25' />
                                     Nombre: {prodCart.name}
                                     Cantidad: {prodCart.cantidad}
                                     Valor unitario: {prodCart.price}

@@ -6,7 +6,6 @@ import ItemDetail from "./ItemDetail"
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
     const { idProducto } = useParams()
-    const [producto, setProducto] = useState([])
     useEffect(() => {
         const db = getFirestore()
         const queryDoc = doc(db, 'Productos', idProducto)

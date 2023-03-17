@@ -1,5 +1,4 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
@@ -16,7 +15,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
-            <Route path='/categoria/:idCategoria' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
+            <Route path='/category/:idCategory' element={<ItemListContainer greeting='Bienvenido a Potterhead Articulos!' />} />
             <Route path='/detalle/:idProducto' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<CartContainer />} />
             <Route path='*' element={<Navigate to='/' />} />
