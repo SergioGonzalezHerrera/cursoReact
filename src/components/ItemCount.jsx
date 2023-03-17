@@ -13,10 +13,10 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
         }
     }
     return (
-        <div className="card mt-5 w-100" >
-            <div className="card-body row">
+        <div>
+            <div className="card-body row text-center" bg="dark" text="white">
                 <div className="col">
-                    <button className="btn btn-outline-dark w-100" onClick={sumar}> + </button>
+                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={sumar}> + </button>
                 </div>
                 <div className="col">
                     <center>
@@ -24,12 +24,10 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
                     </center>
                 </div>
                 <div className="col">
-                    <button className="btn btn-outline-dark w-100" onClick={restar}> - </button>
+                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={restar}> - </button>
                 </div>
             </div>
-            <div className="card-footer">
-                <button className="btn btn-outline-dark w-100" onClick={() => onAdd(count)}>Agregar al carrito</button>
-            </div>
+                <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={() => onAdd(count)}>Agregar al carrito</button>
         </div>
     )
 }

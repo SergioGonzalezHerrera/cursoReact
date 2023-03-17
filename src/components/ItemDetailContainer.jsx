@@ -1,5 +1,6 @@
 import { doc, getDoc, getFirestore } from "firebase/firestore"
 import { useEffect, useState } from "react"
+import { Container } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
 
@@ -13,9 +14,13 @@ const ItemDetailContainer = () => {
             .then(respProd => setProduct({ id: respProd.id, ...respProd.data() }))
     }, [])
     return (
-        <div className="container-fluid">
-            <ItemDetail product={product} />
-        </div>
+        <div className="d-flex vh-100 custom-bg">
+        <Container fluid className="my-auto">
+        <ItemDetail product={product} />
+        </Container>
+      </div>
+            
+
     )
 }
 

@@ -67,7 +67,7 @@ button:focus-visible {
   }
 }
 .custom-bg {
-  background-color: #3a0b0b;
+  background-color: #3a0b0b !important;
 }
 .custom-border {
   border: 5px solid #3a0b0b;

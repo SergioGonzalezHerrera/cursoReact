@@ -14,29 +14,34 @@ const ItemDetail = ({ product }) => {
     }
     return (
         <div className='container-fluid'>
-            <Card className="card text-white bg-dark mb-3 w-50">
-                <Card.Img variant="top" src={product.picture} />
-                <Card.Body>
-                    <Card.Title className='text-center'>{product.name}</Card.Title>
-                    <Card.Text className='text-center'>
-                        {product.description}
-                    </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                    <ListGroup.Item className='text-center'>$ {product.price}</ListGroup.Item>
-                </ListGroup>
-            </Card>
-            <div>
-                {
-                    isCount ?
-                        <ItemCount initial={1} stock={10} onAdd={onAdd} />
-                        :
-                        <>
-                            <Link to='/cart'><button>Ir al carrito</button></Link>
-                            <Link to='/'><button>Seguir comprando</button></Link>
-                        </>
-                }
-            </div>
+            {
+                isCount ?
+                    <Card style={{ width: '18rem' }} className="text-center border-card-white mx-auto" bg="dark" text="white">
+                        <Card.Img variant="top" src={product.picture} />
+                        <Card.Body>
+                            <Card.Title>{product.name}</Card.Title>
+                            <Card.Text>
+                                {product.description}
+                            </Card.Text>
+                        </Card.Body>
+                        <ListGroup className="list-group-flush bg-dark border-dark text-white border-white">
+                            <ListGroup.Item className="bg-dark text-white border-white">Disponibles: {product.stock}</ListGroup.Item>
+                            <ListGroup.Item className="bg-dark text-white border-white">Precio Unitario: {product.price}</ListGroup.Item>
+                        </ListGroup>
+                        <Card.Body>
+                            <ItemCount initial={1} stock={10} onAdd={onAdd} />
+                        </Card.Body>
+                    </Card>
+                    :
+                    <div>
+                        <div className='text-center'>
+                            <Link to='/cart'><button className="mr-2">Ir al carrito</button></Link>
+                            <br/>
+                            <br/>
+                            <Link to='/'><button className="ml-2">Seguir comprando</button></Link>
+                        </div>
+                    </div>
+            }
         </div>
     );
 }
