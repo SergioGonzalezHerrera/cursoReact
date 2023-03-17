@@ -2,7 +2,7 @@ import Cart from "./Cart";
 
 const CartContainer = () => {
   return (
-    <div>
+    <div className="custom-bg">
           <Cart />
     </div>
   )
