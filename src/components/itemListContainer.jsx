@@ -1,31 +1,21 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { gFetch } from "../utils/gFecht"
 import { ItemList } from "./ItemList"
-
-import {collection, doc, getDoc, getDocs, getFirestore, query, where} from "firebase/firestore"
+import {collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 
 const ItemListContainer = ( {greeting}) => {
     const [productos, setProductos] = useState([])
-    const [producto, setProducto] = useState([])
     const [loading, setLoading ] = useState(true)
     const { idCategoria } = useParams()
-
-    
-    
     useEffect(()=>{
         const db = getFirestore()
         const queryCollection = collection(db, 'Productos')
-
         const queryFilter= idCategoria ? query(queryCollection, where( 'categoria' , '==' , idCategoria)) : queryCollection
-
         getDocs(queryFilter)
         .then(respCollection => setProductos( respCollection.docs.map(prod => ({id: prod.id, ...prod.data()}))))
         .catch(err=>console.error(error))
         .finally(()=> setLoading(false))         
-        
     }, [idCategoria])
-
     return (
         <>
             { loading ? 
