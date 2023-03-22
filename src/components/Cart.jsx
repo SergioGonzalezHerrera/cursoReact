@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Card, ListGroup } from "react-bootstrap";
 
 const Cart = () => {
+    const [confirmEmail, setConfirmEmail] = useState('');
     const [id, setId] = useState('')
     const [dataForm, setDataForm] = useState({
         name: '',
@@ -14,6 +15,10 @@ const Cart = () => {
     const { cartList, vaciarCarrito, precioTotal, eliminarProducto } = useCartContext()
     const generateOrder = (event) => {
         event.preventDefault()
+        if (dataForm.email !== confirmEmail) {
+            alert('Los correos electrónicos ingresados no coinciden')
+            return
+        }
         const order = {}
         order.buyer = dataForm
         order.precioTotal = precioTotal()
@@ -30,6 +35,7 @@ const Cart = () => {
                     phone: '',
                     email: ''
                 })
+                setConfirmEmail('')
             })
     }
     const handleOnChange = (event) => {
@@ -83,8 +89,8 @@ const Cart = () => {
                             <input type='text' name='name' placeholder="Ingrese su nombre" onChange={handleOnChange} required value={dataForm.name} /><br />
                             <input type='text' name='phone' placeholder="Ingrese su telefono" onChange={handleOnChange} required value={dataForm.phone} /><br />
                             <input type='text' name='email' placeholder="Ingrese su e-mail" onChange={handleOnChange} required value={dataForm.email} /><br />
-                            {/* <input type='text' name='validarEmail' placeholder="Ingrese su e-mail nuevamente" onChange={handleOnChange} required value={dataForm.validarEmail} /> */}
-                            <br />
+                            <input type='text' name='confirmEmail' placeholder="Ingrese su e-mail nuevamente" onChange={(e) => setConfirmEmail(e.target.value)} required value={confirmEmail} /><br />
+                            {dataForm.email !== confirmEmail && <p className="text-white">Los correos electrónicos ingresados no coinciden</p>}
                             <button className="border-card-white">Confirmar compra</button>
                         </form>
                     </div>
@@ -106,4 +112,3 @@ const Cart = () => {
 }
 
 export default Cart
-
