@@ -1,8 +1,9 @@
-import { useCartContext } from "../context/CartContext";
 import { useState } from "react";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { Card, ListGroup } from "react-bootstrap";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import Swal from 'sweetalert2'
+import { useCartContext } from "../context/CartContext";
 
 const Cart = () => {
     const [confirmEmail, setConfirmEmail] = useState('');
@@ -12,11 +13,15 @@ const Cart = () => {
         phone: '',
         email: ''
     })
-    const { cartList, emptyCart, totalPrice, deleteProduct } = useCartContext() 
+    const { cartList, emptyCart, totalPrice, deleteProduct } = useCartContext()
     const generateOrder = (event) => {
         event.preventDefault()
         if (dataForm.email !== confirmEmail) {
-            alert('Los correos electrónicos ingresados no coinciden')
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Los e-mail ingresados no coinciden',
+            })
             return
         }
         const order = {}

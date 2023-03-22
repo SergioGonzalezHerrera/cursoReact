@@ -1,9 +1,9 @@
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import ItemCount from './ItemCount';
-import { useCartContext } from "../context/CartContext"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { useCartContext } from "../context/CartContext"
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ product }) => {
     const [isCount, setIsCount] = useState(true)

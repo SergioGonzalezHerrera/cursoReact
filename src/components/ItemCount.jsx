@@ -1,5 +1,6 @@
 import { useState } from "react"
 
+
 const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
     const [count, setCount] = useState(initial)
     const add = () => {
@@ -12,6 +13,8 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
             setCount(count - 1)
         }
     }
+    
+
     return (
         <div>
             <div className="card-body row text-center" bg="dark" text="white">

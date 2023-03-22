@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { ItemList } from "./ItemList"
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { Card } from "react-bootstrap"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
+import { ItemList } from "./ItemList"
 import Loading from "./Loading"
 
 const ItemListContainer = ({ greeting }) => {
