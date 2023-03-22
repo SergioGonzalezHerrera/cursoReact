@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap"
 import Loading from "./Loading"
 
 const ItemListContainer = ({ greeting }) => {
-    const [productos, setProductos] = useState([])
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { idCategory } = useParams()
     useEffect(() => {
@@ -18,7 +18,7 @@ const ItemListContainer = ({ greeting }) => {
                 : queryCollection;
             getDocs(queryFilter)
                 .then((respCollection) =>
-                    setProductos(
+                    setProducts(
                         respCollection.docs.map((prod) => ({ id: prod.id, ...prod.data() }))
                     )
                 )
@@ -37,7 +37,7 @@ const ItemListContainer = ({ greeting }) => {
                             <Card.Body ><h3>{greeting}</h3></Card.Body>
                         </Card>
                     </div>
-                    <ItemList productos={productos} />
+                    <ItemList products={products} />
                 </div>
             }
         </>

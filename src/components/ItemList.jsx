@@ -2,10 +2,10 @@ import { memo } from "react"
 import { Item } from "./Item"
 import { styleCards } from "./ItemListContiner.style"
 
-export const ItemList = memo(({ productos }) => {
+export const ItemList = memo(({ products }) => {
     return (
         <div className="justify-content-center align-item-center" style={styleCards}>
-            {productos.map(producto => <Item key={producto.id} producto={producto} />)
+            {products.map(product => <Item key={product.id} product={product} />)
             }
         </div>
     )

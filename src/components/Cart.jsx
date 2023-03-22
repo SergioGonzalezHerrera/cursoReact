@@ -12,7 +12,7 @@ const Cart = () => {
         phone: '',
         email: ''
     })
-    const { cartList, vaciarCarrito, precioTotal, eliminarProducto } = useCartContext()
+    const { cartList, emptyCart, totalPrice, deleteProduct } = useCartContext() 
     const generateOrder = (event) => {
         event.preventDefault()
         if (dataForm.email !== confirmEmail) {
@@ -21,15 +21,15 @@ const Cart = () => {
         }
         const order = {}
         order.buyer = dataForm
-        order.precioTotal = precioTotal()
-        order.productos = cartList.map(({ id, name, price }) => ({ id, name, price }))
+        order.totalPrice = totalPrice()
+        order.products = cartList.map(({ id, name, price }) => ({ id, name, price }))
         const db = getFirestore()
         const queryCollection = collection(db, 'Orders')
         addDoc(queryCollection, order)
             .then(resp => setId(resp.id))
             .catch(err => console.log(err))
             .finally(() => {
-                vaciarCarrito()
+                emptyCart()
                 setDataForm({
                     name: '',
                     phone: '',
@@ -65,11 +65,11 @@ const Cart = () => {
                                             <Card.Title>{prodCart.name}</Card.Title>
                                         </Card.Body>
                                         <ListGroup className="list-group-flush bg-dark border-dark text-white border-white">
-                                            <ListGroup.Item className="bg-dark text-white border-white">Cantidad: {prodCart.cantidad}</ListGroup.Item>
+                                            <ListGroup.Item className="bg-dark text-white border-white">Cantidad: {prodCart.amount}</ListGroup.Item>
                                             <ListGroup.Item className="bg-dark text-white border-white">Precio Unitario: ${prodCart.price}</ListGroup.Item>
                                         </ListGroup>
                                         <Card.Body>
-                                            <button variant="danger" onClick={() => eliminarProducto(prodCart.id)}>Eliminar del carrito</button>
+                                            <button variant="danger" onClick={() => deleteProduct(prodCart.id)}>Eliminar del carrito</button>
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -78,11 +78,11 @@ const Cart = () => {
                     </div>
                     <div className="container-fluid mt-3">
                         <Card className=" text-center bg-dark text-white border-card-white">
-                            <Card.Body ><h3>Valor total: ${precioTotal()}</h3></Card.Body>
+                            <Card.Body ><h3>Valor total: ${totalPrice()}</h3></Card.Body>
                         </Card>
                     </div>
                     <div className=" text-center mt-3">
-                        <button className="border-card-white" onClick={vaciarCarrito}>Vaciar carrito</button>
+                        <button className="border-card-white" onClick={emptyCart}>Vaciar carrito</button>
                     </div>
                     <div className=" text-center mt-3">
                         <form onSubmit={generateOrder}>
@@ -96,7 +96,7 @@ const Cart = () => {
                     </div>
                 </div>
             ) : (
-                <div className="d-flex vh-100 custom-bg mt-3" >
+                <div className="d-flex vh-100 custom-bg" >
                     <div className="container-fluid">
                         <Card className=" text-center bg-dark text-white border-card-white">
                             <Card.Body ><h3>Aún no has agregado productos a tu carrito!</h3></Card.Body>

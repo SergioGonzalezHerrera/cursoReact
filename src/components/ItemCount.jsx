@@ -2,12 +2,12 @@ import { useState } from "react"
 
 const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
     const [count, setCount] = useState(initial)
-    const sumar = () => {
+    const add = () => {
         if (count <= stock) {
             setCount(count + 1)
         }
     }
-    const restar = () => {
+    const subtract = () => {
         if (count > initial) {
             setCount(count - 1)
         }
@@ -16,7 +16,7 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
         <div>
             <div className="card-body row text-center" bg="dark" text="white">
                 <div className="col">
-                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={sumar}> + </button>
+                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={subtract}> - </button>
                 </div>
                 <div className="col">
                     <center>
@@ -24,12 +24,13 @@ const ItemCount = ({ initial = 1, stock = 10, onAdd }) => {
                     </center>
                 </div>
                 <div className="col">
-                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={restar}> - </button>
+                    <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={add}> + </button>
                 </div>
             </div>
-                <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={() => onAdd(count)}>Agregar al carrito</button>
+            <button className="btn btn-outline-white w-100 bg-dark text-white border-white" onClick={() => onAdd(count)}>Agregar al carrito</button>
         </div>
     )
 }
 
 export default ItemCount
+

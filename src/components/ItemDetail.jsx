@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ product }) => {
     const [isCount, setIsCount] = useState(true)
-    const { agregarCart } = useCartContext()
-    function onAdd(cantidad) {
-        agregarCart({ ...product, cantidad })
+    const { addToCart } = useCartContext()
+    function onAdd(amount) {
+        addToCart({ ...product, amount })
         setIsCount(false)
     }
     return (
